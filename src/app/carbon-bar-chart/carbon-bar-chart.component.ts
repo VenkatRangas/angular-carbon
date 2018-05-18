@@ -10,6 +10,7 @@ export class CarbonBarChartComponent implements OnInit,AfterContentInit {
 
   constructor(private chartContainer:ElementRef) {
      console.log("Dom reference for current component",chartContainer);
+     console.log('testoing for git');
    }
    private data:any;
    private margin={ top: 30, right: 20, bottom: 60, left: 65 };
