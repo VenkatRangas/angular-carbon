@@ -17,7 +17,7 @@ export class CarbonBarChartComponent implements OnInit,AfterContentInit {
    private width = 600 - (this.margin.left + this.margin.right);
    private height = 300 - (this.margin.top + this.margin.bottom);
    private labelOffset = 50;
-   private axisOffset = 16;
+   private axisOffset = 30;
 
   ngOnInit() {
     function createData(num) {
@@ -133,7 +133,7 @@ export class CarbonBarChartComponent implements OnInit,AfterContentInit {
 
     // Select Tooltip
     const tooltip = d3.select(element.children[1].children[1]);
-
+    const axisOffset=15;
     const bars = svg.selectAll('.bar')
       .on('mouseover', function(d) { 
 
@@ -141,16 +141,16 @@ export class CarbonBarChartComponent implements OnInit,AfterContentInit {
           d3.select(this)
               .attr('fill', color)
           tooltip
-              .style('display', 'none')
+              .style('display', 'inherit')
               .text(`$${d.amount}`)
-              .style('top', `${y(d.amount) - this.axisOffset}px`);
+              .style('top', `${y(d.amount) - axisOffset}px`);
 
           let bandwidth = x.bandwidth();
           let tooltipWidth = tooltip.nodes()[0].getBoundingClientRect().width;
           let offset = (tooltipWidth - bandwidth) / 2;
 
           tooltip
-              .style('left', `${x(d.date) +30- offset}px`);
+              .style('left', `${x(d.date) +65- offset}px`);
       })
       .on('mouseout', function(d) {
           d3.select(this)
