@@ -36,7 +36,7 @@ export class CarbonBarChartComponent implements OnInit,AfterContentInit {
     }
 
     // Create + Format data
-    this.data = createData(12).sort(function(a, b) { return a.date - b.date; });
+    this.data = createData(6).sort(function(a, b) { return a.date - b.date; });
 
 
   }
@@ -46,9 +46,6 @@ export class CarbonBarChartComponent implements OnInit,AfterContentInit {
 
     // const svg1 = d3.select(element).append('svg');
     // what are these and are they things that someone should edit
-
-
-
     // Set Time Format (JAN, FEB, etc..)
     const timeFormat = d3.timeFormat('%b');
 
@@ -127,7 +124,7 @@ export class CarbonBarChartComponent implements OnInit,AfterContentInit {
       .attr('y', (d) => this.height)
       .attr('height', 0)
       .attr('width', x.bandwidth())
-      .attr('fill', '#00A78F')
+      .attr('fill', '#005ba7')
       .transition()
       .duration(500)
       .delay((d, i) => i * 50)
@@ -140,7 +137,7 @@ export class CarbonBarChartComponent implements OnInit,AfterContentInit {
     const bars = svg.selectAll('.bar')
       .on('mouseover', function(d) { 
 
-          let color = d3.color('#00A78F').darker()
+          let color = d3.color('#005ba7').darker()
           d3.select(this)
               .attr('fill', color)
           tooltip
@@ -159,7 +156,7 @@ export class CarbonBarChartComponent implements OnInit,AfterContentInit {
           d3.select(this)
               .transition()
               .duration(250)
-              .attr('fill', '#00A78F')
+              .attr('fill', '#005ba7')
           tooltip
               .style('display', 'none')
       })
